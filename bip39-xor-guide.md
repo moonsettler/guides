@@ -2,8 +2,9 @@
 
 so i decided to make a guide about how to secure bip39 seeds with just pen and paper, no additional devices or software required.
 
-we gonna be using xor cipher, and the following cheat sheet:
-https://raw.githubusercontent.com/moonsettler/guides/main/bip39-cheatsheet.pdf
+we gonna be using xor cipher, and the following cheat sheet: \
+sigle page: https://raw.githubusercontent.com/moonsettler/guides/main/bip39-cheatsheet.pdf \
+landscape 3 pages: https://raw.githubusercontent.com/moonsettler/guides/main/bip39_cheatsheet_landscape.pdf
 
 it's a pdf file you can print it out, very easy to parse because it's naturally indexed for both alphabetic order and hexadecimal digits.
 
@@ -50,7 +51,7 @@ S x A x B = C: `002, 647, 525, 425, 707, 1F2, 1D9, 77E, 368, 09D, 7CB, 07B`
 ## step 5:
 now let's look up the words for C!
 
-able, similar, pigeon, lucky, thought, dinner, depth, used, home, beauty, west, author
+`able, similar, pigeon, lucky, thought, dinner, depth, used, home, beauty, west, author`
 
 now we have our 3 components for S which are A, B, C
 
@@ -59,7 +60,7 @@ we only need to take a look at step 2 for the groups now!
 ## step 6:
 let's create our recovery sheets! each of them 24 words, but none of them are our valid seed actually.
 
-however we can recover our secret S from any 2 of them! (if i did not mess something up - and i did!)
+however we can recover our secret S from any 2 of them! (if i did not mess something up)
 ![FGvf44wVkAUBd7G](https://user-images.githubusercontent.com/90689674/146414046-1c069644-8266-4da6-b1a9-eadaa8c92803.png)
 
 ## notes - on seeds passwords and backups
@@ -73,7 +74,7 @@ this means if the seed entropy survives you, your family can still recover your 
 
 this accomplishes 2 things:
 
-1 in the event of threshold (in our case 2) number of locations compromised you still have time to use your wallet or from memory to move the assets to a new wallet.
+1 in the event of threshold (in our case 2) number of locations compromised you still have time to use your wallet (or from memory) to move the assets to a new wallet.
 
 2 your coins are very unlikely to be lost forever if you die.
 
