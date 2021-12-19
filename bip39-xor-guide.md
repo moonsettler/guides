@@ -4,7 +4,9 @@ so i decided to make a guide about how to secure bip39 seeds with just pen and p
 
 we gonna be using xor cipher, and the following cheat sheet: \
 sigle page: https://raw.githubusercontent.com/moonsettler/guides/main/bip39-cheatsheet.pdf \
-landscape 3 pages: https://raw.githubusercontent.com/moonsettler/guides/main/bip39_cheatsheet_landscape.pdf
+landscape 3 pages: https://raw.githubusercontent.com/moonsettler/guides/main/bip39_cheatsheet_landscape.pdf \
+you may also want to print out this helper page which is mostly a printer friendly HEX XOR table \
+XOR table: https://raw.githubusercontent.com/moonsettler/guides/main/xor-table.pdf
 
 it's a pdf file you can print it out, very easy to parse because it's naturally indexed for both alphabetic order and hexadecimal digits.
 
