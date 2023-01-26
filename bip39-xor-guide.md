@@ -24,7 +24,7 @@ as in
 ## step  2:
 let's decide the split, like i said earlier n of n and also 2 of n are fairly trivial to make.
 
-we are going to do a 2 of 3 split. that means we will have 3 groups of words where S = A x B x C (x is xor here):
+we are going to do a 2 of 3 split. that means we will have 3 groups of words where S = A ⊕ B ⊕ C:
 
 `A, B`\
 `B, C`\
@@ -33,7 +33,7 @@ we are going to do a 2 of 3 split. that means we will have 3 groups of words whe
 any 2 of these makes recovery of S possible.
 
 ## step 3:
-since S = A x B x C it's also true, that C = S x A x B, and if all words are within the bip38 11 bit word list every bip39 word xor any other word will also be a valid word.
+since S = A ⊕ B ⊕ C it's also true, that C = S ⊕ A ⊕ B, and if all words are within the bip39 11 bit word list every bip39 word xor any other word will also be a valid word.
 
 this is what we will use to make our life very easy.
 
@@ -48,7 +48,7 @@ to get C, we simply xor up our words for the same positions
 
 A: `279, 1CF, 0BC, 1CA, 340, 1B9, 41F, 1CF, 449, 75F, 30C, 07C`\
 B: `3DC, 028, 08E, 2FA, 4B9, 0FA, 2B0, 16E, 62C, 4EB, 542, 462`\
-S x A x B = C: `002, 647, 525, 425, 707, 1F2, 1D9, 77E, 368, 09D, 7CB, 07B`
+S ⊕ A ⊕ B = C: `002, 647, 525, 425, 707, 1F2, 1D9, 77E, 368, 09D, 7CB, 07B`
 
 ## step 5:
 now let's look up the words for C!
@@ -64,6 +64,40 @@ let's create our recovery sheets! each of them 24 words, but none of them are ou
 
 however we can recover our secret S from any 2 of them! (if i did not mess something up)
 ![FGvf44wVkAUBd7G](https://user-images.githubusercontent.com/90689674/146414046-1c069644-8266-4da6-b1a9-eadaa8c92803.png)
+
+## advanced - other threshold xor splits (proposed, under review)
+
+### 2 of n (where n:4..6)
+
+`S = A ⊕ B ⊕ C = D ⊕ E ⊕ F`
+
+1. `(A, B, D ⊕ C)`
+2. `(B, C, E ⊕ A)`
+3. `(C, A, F ⊕ B)`
+4. `(D, E, A ⊕ F)`
+5. `(E, F, B ⊕ D)`
+6. `(F, D, C ⊕ E)`
+
+example 2 of 5:
+`(A, B, D ⊕ C), (B, C, E ⊕ A), (C, A, F ⊕ B), (D, E, A ⊕ F), (E, F, B ⊕ D)`
+
+### 3 of 5 by @ZeWiseLib
+
+`S = A ⊕ B ⊕ C ⊕ D ⊕ E ⊕ F`
+1. `(A, B, D ⊕ F)`
+2. `(B, C, E ⊕ F)`
+3. `(C, D, A ⊕ F)`
+4. `(D, E, B ⊕ F)`
+5. `(E, A, C ⊕ F)`
+
+alternatively:
+
+`S = A ⊕ B ⊕ C ⊕ D ⊕ E = F ⊕ G ⊕ H ⊕ I ⊕ J`
+1. `(A, B, F, G)`
+2. `(B, C, H, I)`
+3. `(C, D, J, F)`
+4. `(D, E, G, H)`
+5. `(E, A, I, J)`
 
 ## notes - on seeds passwords and backups
 you can put them on steel, but technically if they are stored at different locations the chances of losing access to 2 of them at the same time are very small.
@@ -84,11 +118,12 @@ the seeds are mnemonic for a reason btw. try to remember your 12 words!
 
 ## xor table - a little help for step4:
 to xor 2 hexa numbers you perform the xor by digit
-`10D x 449 x 62C = 368` because
+`10D ⊕ 449 ⊕ 62C = 368` because
 
-`1 x 4 = 5` and then `5 x 6 = 3`\
-`0 x 4 = 4` and then `4 x 2 = 6`\
-`D x 9 = 4` and then `4 x C = 8`
+`1 ⊕ 4 = 5` and then `5 ⊕ 6 = 3`\
+`0 ⊕ 4 = 4` and then `4 ⊕ 2 = 6`\
+`D ⊕ 9 = 4` and then `4 ⊕ C = 8`
 
-![FGvhZirUUAUhbYi](https://user-images.githubusercontent.com/90689674/146414381-5d8a9ca6-3317-4f6e-b448-f23a61210ac4.png)
+
+![image](https://user-images.githubusercontent.com/90689674/214966127-10953c64-6001-4154-8a29-8b4084d1b40e.png)
 
